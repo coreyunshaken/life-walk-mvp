@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LifePoint, TrajectoryData, QuickCheckStep } from '../types';
 import { analyzeTrajectory } from '../utils/analysis';
+import ExampleModal from './ExampleModal';
 import './QuickTrajectoryCheck.css';
 
 interface Props {

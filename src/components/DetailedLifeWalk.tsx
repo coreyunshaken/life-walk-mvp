@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TrajectoryData, WalkReflection } from '../types';
 import { saveToLocalStorage, loadFromLocalStorage } from '../utils/storage';
+import ExampleModal from './ExampleModal';
 import './DetailedLifeWalk.css';
 
 interface Props {
@@ -17,6 +18,7 @@ const DetailedLifeWalk: React.FC<Props> = ({ quickCheckData, onBack }) => {
     professional: ''
   });
   const [activeTab, setActiveTab] = useState<'personal' | 'professional'>('personal');
+  const [showExample, setShowExample] = useState(false);
 
   // Generate age points in 5-year increments
   const agePoints: number[] = [];
@@ -168,7 +170,16 @@ const DetailedLifeWalk: React.FC<Props> = ({ quickCheckData, onBack }) => {
           </div>
 
           <div className="reflection-input">
-            <p className="prompt">{getPrompt(selectedAge, activeTab)}</p>
+            <div className="prompt-with-example">
+              <p className="prompt">{getPrompt(selectedAge, activeTab)}</p>
+              <button 
+                onClick={() => setShowExample(true)}
+                className="example-button"
+                title="See an example reflection for guidance"
+              >
+                💡 See Example
+              </button>
+            </div>
             
             <textarea
               value={activeTab === 'personal' ? currentReflection.personal : currentReflection.professional}
@@ -224,6 +235,13 @@ const DetailedLifeWalk: React.FC<Props> = ({ quickCheckData, onBack }) => {
           </div>
         )}
       </div>
+      
+      <ExampleModal
+        isOpen={showExample}
+        onClose={() => setShowExample(false)}
+        age={selectedAge}
+        type={activeTab}
+      />
     </div>
   );
 };
