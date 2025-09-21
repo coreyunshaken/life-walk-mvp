@@ -7,19 +7,19 @@ export const analyzeTrajectory = (
 ): TrajectoryAnalysis => {
   // Extract patterns from past to present
   const patterns = extractPatterns(pastPoints, presentPoint);
-  
+
   // Project future based on current trajectory
   const currentPath = projectCurrentPath(patterns, presentPoint);
-  
+
   // Extract desired future state
   const desiredPath = extractDesiredPath(futureDesires);
-  
-  // Calculate the gap
-  const gap = calculateGap(currentPath, desiredPath);
-  
+
+  // Calculate the gap using raw user input
+  const gap = calculateGap(currentPath, desiredPath, pastPoints, presentPoint, futureDesires);
+
   // Determine action needed
   const actionNeeded = determineAction(gap, patterns);
-  
+
   return {
     currentPath,
     desiredPath,
@@ -91,29 +91,35 @@ const extractDesiredPath = (futureDesires: LifePoint[]): string => {
   return `Desired future includes: ${desires.substring(0, 200)}...`;
 };
 
-const calculateGap = (currentPath: string, desiredPath: string): string => {
-  // Enhanced gap analysis based on divergence
-  const currentKeywords = currentPath.toLowerCase();
-  const desiredKeywords = desiredPath.toLowerCase();
+const calculateGap = (
+  currentPath: string,
+  desiredPath: string,
+  pastPoints: LifePoint[],
+  presentPoint: LifePoint,
+  futureDesires: LifePoint[]
+): string => {
+  // Use raw user input for better keyword detection
+  const currentText = presentPoint.reflection.toLowerCase();
+  const futureText = futureDesires.map(p => p.reflection).join(' ').toLowerCase();
 
   const hasSignificantGap =
     // Original conditions
-    (desiredKeywords.includes('travel') && !currentKeywords.includes('travel')) ||
-    (desiredKeywords.includes('freedom') && currentKeywords.includes('busy')) ||
-    (desiredKeywords.includes('creative') && currentKeywords.includes('career')) ||
-    (desiredKeywords.includes('peace') && currentKeywords.includes('stress')) ||
+    (futureText.includes('travel') && !currentText.includes('travel')) ||
+    (futureText.includes('freedom') && currentText.includes('busy')) ||
+    (futureText.includes('creative') && currentText.includes('career')) ||
+    (futureText.includes('peace') && currentText.includes('stress')) ||
 
     // Entrepreneurship vs Employment
-    ((desiredKeywords.includes('business') || desiredKeywords.includes('consultancy') || desiredKeywords.includes('entrepreneur') || desiredKeywords.includes('own')) &&
-     (currentKeywords.includes('manager') || currentKeywords.includes('employee') || currentKeywords.includes('company') || currentKeywords.includes('corporate'))) ||
+    ((futureText.includes('business') || futureText.includes('consultancy') || futureText.includes('entrepreneur') || futureText.includes('own')) &&
+     (currentText.includes('manager') || currentText.includes('employee') || currentText.includes('company') || currentText.includes('corporate'))) ||
 
     // Autonomy vs Constraint
-    ((desiredKeywords.includes('flexible') || desiredKeywords.includes('choose') || desiredKeywords.includes('freedom') || desiredKeywords.includes('control')) &&
-     (currentKeywords.includes('stuck') || currentKeywords.includes('trapped') || currentKeywords.includes('overwhelmed') || currentKeywords.includes('exhausted'))) ||
+    ((futureText.includes('flexible') || futureText.includes('choose') || futureText.includes('freedom') || futureText.includes('control')) &&
+     (currentText.includes('stuck') || currentText.includes('trapped') || currentText.includes('overwhelmed') || currentText.includes('exhausted'))) ||
 
     // Time freedom vs Time scarcity
-    ((desiredKeywords.includes('time') || desiredKeywords.includes('family') || desiredKeywords.includes('present')) &&
-     (currentKeywords.includes('no time') || currentKeywords.includes('busy') || currentKeywords.includes('juggling') || currentKeywords.includes('always')));
+    ((futureText.includes('time') || futureText.includes('family') || futureText.includes('present')) &&
+     (currentText.includes('no time') || currentText.includes('busy') || currentText.includes('juggling') || currentText.includes('always')));
 
   if (hasSignificantGap) {
     return 'SIGNIFICANT GAP: Your current trajectory and desired future are heading in opposite directions. Immediate action required.';
