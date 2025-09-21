@@ -49,11 +49,67 @@
   min-width: 200px;
 }
 
+/* Ready to Go Deeper Section */
+.ready-deeper {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 2px solid #e2e8f0;
+  margin-top: 2rem;
+}
+
+.ready-deeper h2 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.deeper-intro {
+  font-size: 1.1em;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.deeper-benefits {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.deeper-benefits p {
+  margin-bottom: 1rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.deeper-benefits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deeper-benefits li {
+  padding: 0.5rem 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.time-estimate {
+  color: #718096;
+  font-size: 0.95em;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+button.large {
+  font-size: 1.1em;
+  padding: 1rem 2rem;
+}
+
 @media (max-width: 768px) {
   .button-group {
     flex-direction: column;
   }
-  
+
   .button-group button {
     width: 100%;
   }

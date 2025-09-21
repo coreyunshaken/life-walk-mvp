@@ -188,19 +188,23 @@ const calculateGap = (
 };
 
 const determineAction = (gap: string, patterns: string[]): string => {
-  if (gap.includes('SIGNIFICANT')) {
-    return 'You need to make major changes NOW. Start with one concrete action this week that moves you toward your desired future.';
+  // Create specific action based on patterns, always leading to Full Life Walk
+  let immediateAction = '';
+
+  if (patterns.includes('Entrepreneurial') && patterns.includes('Risk-averse')) {
+    immediateAction = 'Before you sleep tonight: Write down 3 people who successfully made the transition you want. Tomorrow: Reach out to one of them.';
+  } else if (patterns.includes('Family-oriented') && patterns.includes('Work-life conflict')) {
+    immediateAction = 'Tonight at dinner: Ask your family what they need most from you. Tomorrow: Block 2 hours of "untouchable" family time in your calendar.';
+  } else if (patterns.includes('Time-constrained')) {
+    immediateAction = 'Right now: List 3 things you do that don\'t align with your stated goals. This week: Eliminate or delegate one of them.';
+  } else if (gap.includes('SIGNIFICANT')) {
+    immediateAction = 'Today: Choose one small action that your future self will thank you for. Tomorrow: Do it again. Build momentum.';
+  } else {
+    immediateAction = 'Start with one micro-commitment today that moves you toward your vision. Progress compounds.';
   }
 
-  if (patterns.includes('Procrastination')) {
-    return 'Stop waiting for "the right time." Choose one small step toward your dreams and take it today.';
-  }
-
-  if (patterns.includes('Time-constrained')) {
-    return 'Time is not found, it\'s made. What can you stop doing to make room for what matters?';
-  }
-
-  return 'Begin with small, consistent actions. Daily progress toward your vision will compound over time.';
+  // Always append the bridge to Full Life Walk
+  return `${immediateAction} Then use the Full Life Walk below to map out your complete transformation plan - year by year, with specific milestones and commitments.`;
 };
 
 const calculateCostOfWaiting = (

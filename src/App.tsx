@@ -233,15 +233,26 @@ function App() {
         {phase === 'results' && trajectoryData && (
           <>
             <TrajectoryVisualization data={trajectoryData} />
-            <div className="card fade-in">
-              <h2>Ready to Go Deeper?</h2>
-              <p>
-                Now that you see the gap, let's map out your path to change it. 
-                The full Life Walk experience helps you envision and plan each step of your journey.
+            <div className="card fade-in ready-deeper">
+              <h2>🗺️ Ready to Create Your Transformation Plan?</h2>
+              <p className="deeper-intro">
+                You've seen the gap. You know the cost of waiting. Now it's time to build your bridge to the future you want.
+              </p>
+              <div className="deeper-benefits">
+                <p><strong>The Full Life Walk will help you:</strong></p>
+                <ul>
+                  <li>✓ Map out year-by-year milestones from now to your ideal future</li>
+                  <li>✓ Identify specific actions for each life stage</li>
+                  <li>✓ Create accountability checkpoints you can revisit</li>
+                  <li>✓ Turn vague dreams into concrete commitments</li>
+                </ul>
+              </div>
+              <p className="time-estimate">
+                <em>Takes 20-30 minutes. Your responses are saved locally for future reference.</em>
               </p>
               <div className="button-group">
-                <button onClick={handleStartDetailedWalk} className="primary">
-                  Start Full Life Walk
+                <button onClick={handleStartDetailedWalk} className="primary large">
+                  Start Full Life Walk →
                 </button>
                 <button onClick={() => setPhase('quickCheck')} className="secondary">
                   Retake Quick Check
