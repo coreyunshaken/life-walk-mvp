@@ -382,13 +382,12 @@ const DetailedLifeWalk: React.FC<Props> = ({ quickCheckData, onBack }) => {
         )}
       </div>
 
-      {showExample && (
-        <ExampleModal
-          age={selectedAge}
-          type="integrated"
-          onClose={() => setShowExample(false)}
-        />
-      )}
+      <ExampleModal
+        isOpen={showExample}
+        age={selectedAge}
+        type="integrated"
+        onClose={() => setShowExample(false)}
+      />
     </div>
   );
 };
