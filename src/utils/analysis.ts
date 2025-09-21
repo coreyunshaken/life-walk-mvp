@@ -31,31 +31,53 @@ export const analyzeTrajectory = (
 
 const extractPatterns = (pastPoints: LifePoint[], presentPoint: LifePoint): string[] => {
   const patterns: string[] = [];
-  
-  // Look for common themes
+
+  // Look for common themes across all reflections
   const allReflections = [...pastPoints, presentPoint].map(p => p.reflection.toLowerCase());
-  
-  // Pattern detection
-  if (allReflections.filter(r => r.includes('work') || r.includes('career')).length > 2) {
+  const allText = allReflections.join(' ');
+
+  // Career focus - look for career/work mentions
+  if (allText.includes('work') || allText.includes('career') || allText.includes('job') || allText.includes('professional')) {
     patterns.push('Career-focused');
   }
-  
-  if (allReflections.filter(r => r.includes('later') || r.includes('someday') || r.includes('eventually')).length > 1) {
-    patterns.push('Procrastination');
-  }
-  
-  if (allReflections.filter(r => r.includes('family') || r.includes('kids') || r.includes('spouse')).length > 2) {
-    patterns.push('Family-oriented');
-  }
-  
-  if (allReflections.filter(r => r.includes('dream') || r.includes('goal') || r.includes('want')).length > 2) {
-    patterns.push('Aspiration-driven');
-  }
-  
-  if (allReflections.filter(r => r.includes('busy') || r.includes('no time') || r.includes('overwhelmed')).length > 1) {
+
+  // Time constraints - look for time pressure indicators
+  if (allText.includes('busy') || allText.includes('no time') || allText.includes('overwhelmed') ||
+      allText.includes('exhausted') || allText.includes('juggling') || allText.includes('always')) {
     patterns.push('Time-constrained');
   }
-  
+
+  // Family oriented - look for family mentions
+  if (allText.includes('family') || allText.includes('kids') || allText.includes('children') ||
+      allText.includes('spouse') || allText.includes('married') || allText.includes('parent')) {
+    patterns.push('Family-oriented');
+  }
+
+  // Risk averse - look for safety/stuck indicators
+  if (allText.includes('stuck') || allText.includes('safe') || allText.includes('secure') ||
+      allText.includes('trapped') || allText.includes('comfortable') || allText.includes('playing it safe')) {
+    patterns.push('Risk-averse');
+  }
+
+  // Entrepreneurial aspirations - look for business/independence desires
+  if (allText.includes('business') || allText.includes('consultancy') || allText.includes('entrepreneur') ||
+      allText.includes('own') || allText.includes('freedom') || allText.includes('flexible')) {
+    patterns.push('Entrepreneurial');
+  }
+
+  // Achievement driven - look for success/ambition indicators
+  if (allText.includes('success') || allText.includes('achieve') || allText.includes('goal') ||
+      allText.includes('ambition') || allText.includes('grow') || allText.includes('advance')) {
+    patterns.push('Achievement-driven');
+  }
+
+  // Work-life conflict - specific combination check
+  if ((allText.includes('family') || allText.includes('kids')) &&
+      (allText.includes('work') || allText.includes('career')) &&
+      (allText.includes('balance') || allText.includes('time') || allText.includes('present'))) {
+    patterns.push('Work-life conflict');
+  }
+
   return patterns;
 };
 
