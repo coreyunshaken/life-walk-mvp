@@ -89,11 +89,32 @@
 **Professional:**
 "I want to be mentoring the next generation of female entrepreneurs. Maybe through formal programs or writing/speaking. I want to feel like I made a difference in other people's careers. Financial security should allow me to be selective about my time and energy."
 
+### Age 65 (30 years from now)
+**Personal:**
+"I want to be the vibrant, adventurous grandmother who still travels and tries new things. My husband and I should be enjoying our 'second honeymoon' phase with freedom to explore. I want to have strong relationships with my adult children - as friends, not just as their parent. Regular volunteer work that uses my business expertise to help others."
+
+**Professional:**
+"Shifting from active consulting to advisory roles and board positions. Teaching occasional masterclasses or workshops on building a consulting business. My business book should be published and helping other women escape corporate. Passive income from courses or licensing my methodology. Only taking projects that truly excite me or support causes I believe in."
+
+### Age 70 (35 years from now)
+**Personal:**
+"Still healthy and independent, not a burden on my children. Traveling to see grandchildren in their various life pursuits - graduations, performances, milestones. Hosting family gatherings at our home - being the matriarch who brings everyone together. Deep involvement in causes I care about, particularly women's entrepreneurship and education."
+
+**Professional:**
+"Emeritus status - respected elder in my field but not actively working. Speaking at major conferences as a keynote about my journey and lessons learned. Endowing a scholarship or program for women transitioning from corporate to entrepreneurship. My legacy should be the hundreds of women I helped become business owners. Completely optional work - only if it brings joy and meaning."
+
+### Age 75 (40 years from now)
+**Personal:**
+"Grateful for the life I've lived and the choices I made, especially leaving corporate to build my own business. Still mentally sharp and physically active within reason. Surrounded by family who sees me as an inspiration, not just as 'mom' or 'grandma'. Living in a community where I have deep friendships and daily purpose. Writing memoirs or family history for future generations."
+
+**Professional:**
+"Fully retired but my impact continues through the businesses and leaders I helped create. Guest lecturing at universities about entrepreneurship and life design. The consultancy either sold successfully or transitioned to a trusted successor who maintains my values. Financial security that allows generous philanthropy. Known as someone who proved it's never too late to change your life trajectory."
+
 ---
 
 ## Key Themes Throughout Her Journey
-- **Personal:** Family, Health, Relationships, Travel, Hobbies
-- **Professional:** Entrepreneurship, Career Growth, Skill Development, Consulting, Retirement Planning
+- **Personal:** Family, Health, Relationships, Travel, Hobbies, Legacy, Mentorship
+- **Professional:** Entrepreneurship, Career Growth, Skill Development, Consulting, Retirement Planning, Philanthropy
 
 ## The Emotional Arc
 Sarah represents the classic "stuck in corporate comfort zone" dilemma. She has clear entrepreneurial vision but feels trapped by family responsibilities and financial security needs. The Life Walk reveals how her current path leads to regret and missed opportunities, while her desired path leads to fulfillment and authentic success.

@@ -104,31 +104,69 @@
   margin-bottom: 2rem;
 }
 
-.tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
+/* Path reminder for significant gaps */
+.path-reminder {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  border: 2px solid #fc8181;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.tab {
-  flex: 1;
-  padding: 0.75rem;
-  background: white;
-  color: #4a5568;
+.gap-alert {
+  color: #742a2a;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+/* Cost reminder styling */
+.cost-reminder {
+  background: linear-gradient(135deg, #fed7d7 0%, #fbb6ce 100%);
+  border: 2px solid #f687b3;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #744210;
+  font-weight: 600;
+}
+
+/* Integrated prompt styling */
+.integrated-prompt {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.integrated-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
+  font-size: 1em;
+  line-height: 1.6;
+  resize: vertical;
 }
 
-.tab:hover {
-  background: #edf2f7;
-}
-
-.tab.active {
-  background: #667eea;
-  color: white;
+.integrated-textarea:focus {
   border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Path indicators */
+.age-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.path-icon {
+  margin-top: 0.25rem;
+  font-size: 1.2em;
 }
 
 .reflection-input {
@@ -216,27 +254,182 @@
   color: #2d3748;
 }
 
+/* Commitment Screen */
+.commitment-screen {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.journey-summary {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border: 2px solid #9ae6b4;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.journey-summary h3 {
+  color: #22543d;
+  margin-bottom: 1rem;
+}
+
+.vision-path {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vision-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.age-marker {
+  font-weight: bold;
+  color: #2f855a;
+  min-width: 70px;
+}
+
+.vision-text {
+  color: #2d3748;
+  line-height: 1.5;
+}
+
+.urgency-reminder {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  border: 2px solid #fc8181;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.urgency-reminder h3 {
+  color: #742a2a;
+  margin-bottom: 1rem;
+}
+
+.urgency-reminder p {
+  color: #742a2a;
+  margin-bottom: 0.5rem;
+}
+
+.cost-highlight {
+  font-weight: bold;
+  color: #9c4221;
+  background: rgba(254, 215, 215, 0.5);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.commitment-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+}
+
+.commitment-section h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.commitment-prompt {
+  color: #4a5568;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.commitment-section textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1em;
+  line-height: 1.6;
+  resize: vertical;
+  margin-bottom: 1.5rem;
+}
+
+.commitment-section textarea:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.commitment-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Journey Sidebar */
+.journey-sidebar {
+  background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+  border: 2px solid #cbd5e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.journey-sidebar h4 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.journey-entry {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #667eea;
+}
+
+.journey-age {
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.journey-text {
+  color: #4a5568;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
 @media (max-width: 768px) {
   .age-points {
     justify-content: center;
   }
-  
+
   .input-actions {
     flex-direction: column;
   }
-  
-  .tabs {
-    flex-direction: column;
-  }
-  
-  .prompt-with-example {
+
+  .prompt-with-example,
+  .integrated-prompt {
     flex-direction: column;
     gap: 0.75rem;
   }
-  
+
   .example-button {
     align-self: flex-start;
     font-size: 0.8em;
     padding: 0.4rem 0.8rem;
+  }
+
+  .commitment-actions {
+    flex-direction: column;
+  }
+
+  .vision-point {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .age-marker {
+    min-width: auto;
   }
 }
