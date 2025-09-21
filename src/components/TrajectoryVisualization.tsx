@@ -142,6 +142,18 @@ const TrajectoryVisualization: React.FC<Props> = ({ data }) => {
             </div>
           )}
 
+          {/* Cost of Waiting Section */}
+          {analysis.costOfWaiting && analysis.costOfWaiting.length > 0 && (
+            <div className="cost-section">
+              <h4>💰 The Cost of Waiting:</h4>
+              <ul className="cost-list">
+                {analysis.costOfWaiting.map((cost, index) => (
+                  <li key={index} className="cost-item">{cost}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="action-box">
             <h3>🎯 The Choice Is Yours</h3>
             <p className="action-statement">{analysis.actionNeeded}</p>

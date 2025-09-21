@@ -20,12 +20,16 @@ export const analyzeTrajectory = (
   // Determine action needed
   const actionNeeded = determineAction(gap, patterns);
 
+  // Calculate cost of waiting
+  const costOfWaiting = calculateCostOfWaiting(presentPoint, futureDesires, patterns);
+
   return {
     currentPath,
     desiredPath,
     gap,
     actionNeeded,
-    patterns
+    patterns,
+    costOfWaiting
   };
 };
 
@@ -187,14 +191,70 @@ const determineAction = (gap: string, patterns: string[]): string => {
   if (gap.includes('SIGNIFICANT')) {
     return 'You need to make major changes NOW. Start with one concrete action this week that moves you toward your desired future.';
   }
-  
+
   if (patterns.includes('Procrastination')) {
     return 'Stop waiting for "the right time." Choose one small step toward your dreams and take it today.';
   }
-  
+
   if (patterns.includes('Time-constrained')) {
     return 'Time is not found, it\'s made. What can you stop doing to make room for what matters?';
   }
-  
+
   return 'Begin with small, consistent actions. Daily progress toward your vision will compound over time.';
+};
+
+const calculateCostOfWaiting = (
+  presentPoint: LifePoint,
+  futureDesires: LifePoint[],
+  patterns: string[]
+): string[] => {
+  const costs: string[] = [];
+  const age = presentPoint.age || 35;
+  const currentText = presentPoint.reflection.toLowerCase();
+  const futureText = futureDesires.map(p => p.reflection).join(' ').toLowerCase();
+
+  // Entrepreneurial cost of waiting
+  if (patterns.includes('Entrepreneurial') && patterns.includes('Risk-averse')) {
+    costs.push(`Every year you delay starting your business = 2 years harder to transition`);
+
+    if (age < 40) {
+      costs.push(`Starting a business after 40 has 40% lower success rate than starting now`);
+    }
+
+    if (futureText.includes('consultancy') || futureText.includes('freelance')) {
+      const potentialYears = Math.max(0, 65 - age - 5); // Years of potential business ownership
+      costs.push(`Waiting 5 years could cost you ${potentialYears} years of business ownership`);
+    }
+  }
+
+  // Family time cost
+  if (patterns.includes('Family-oriented') && patterns.includes('Work-life conflict')) {
+    if (currentText.includes('kids') || currentText.includes('children')) {
+      costs.push(`Your children grow 5 years older while you delay - these moments don't come back`);
+      costs.push(`Missing your kids' childhood for a job you plan to leave anyway`);
+    }
+  }
+
+  // Financial cost of waiting
+  if (patterns.includes('Achievement-driven') && futureText.includes('financial')) {
+    costs.push(`5-year delay = potential loss of $200K+ in compound business growth`);
+  }
+
+  // Energy and health cost
+  if (age >= 35 && age <= 45) {
+    costs.push(`Your energy and risk tolerance decrease 20% every 5 years after 35`);
+  }
+
+  // Regret accumulation
+  if (patterns.includes('Risk-averse')) {
+    costs.push(`The regret of not trying compounds faster than the risk of failing`);
+  }
+
+  // If no specific costs identified, add general cost
+  if (costs.length === 0) {
+    costs.push(`Every year of delay makes change exponentially harder`);
+    costs.push(`The best time was 5 years ago. The second best time is now`);
+  }
+
+  return costs;
 };

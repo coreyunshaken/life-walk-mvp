@@ -20,6 +20,7 @@ export interface TrajectoryAnalysis {
   gap: string;
   actionNeeded: string;
   patterns: string[];
+  costOfWaiting?: string[];
 }
 
 export interface DetailedWalk {

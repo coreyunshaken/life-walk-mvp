@@ -318,6 +318,49 @@
   font-weight: 600;
 }
 
+/* Cost of Waiting Section */
+.cost-section {
+  background: linear-gradient(135deg, #fef5e7 0%, #fdebd0 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid rgba(241, 196, 15, 0.2);
+  margin-bottom: 2rem;
+}
+
+.cost-section h4 {
+  color: #d68910;
+  margin-bottom: 1rem;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.cost-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cost-item {
+  padding: 0.75rem 0;
+  padding-left: 1.5rem;
+  color: #7d4f05;
+  font-size: 0.95em;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(241, 196, 15, 0.2);
+  position: relative;
+}
+
+.cost-item:last-child {
+  border-bottom: none;
+}
+
+.cost-item::before {
+  content: "⚠️";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+}
+
 /* Action Box */
 .action-box {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
