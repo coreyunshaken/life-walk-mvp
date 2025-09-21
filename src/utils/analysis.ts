@@ -92,20 +92,33 @@ const extractDesiredPath = (futureDesires: LifePoint[]): string => {
 };
 
 const calculateGap = (currentPath: string, desiredPath: string): string => {
-  // Simple gap analysis based on divergence
-  const currentKeywords = currentPath.toLowerCase().split(' ');
-  const desiredKeywords = desiredPath.toLowerCase().split(' ');
-  
-  const hasSignificantGap = 
+  // Enhanced gap analysis based on divergence
+  const currentKeywords = currentPath.toLowerCase();
+  const desiredKeywords = desiredPath.toLowerCase();
+
+  const hasSignificantGap =
+    // Original conditions
     (desiredKeywords.includes('travel') && !currentKeywords.includes('travel')) ||
     (desiredKeywords.includes('freedom') && currentKeywords.includes('busy')) ||
     (desiredKeywords.includes('creative') && currentKeywords.includes('career')) ||
-    (desiredKeywords.includes('peace') && currentKeywords.includes('stress'));
-  
+    (desiredKeywords.includes('peace') && currentKeywords.includes('stress')) ||
+
+    // Entrepreneurship vs Employment
+    ((desiredKeywords.includes('business') || desiredKeywords.includes('consultancy') || desiredKeywords.includes('entrepreneur') || desiredKeywords.includes('own')) &&
+     (currentKeywords.includes('manager') || currentKeywords.includes('employee') || currentKeywords.includes('company') || currentKeywords.includes('corporate'))) ||
+
+    // Autonomy vs Constraint
+    ((desiredKeywords.includes('flexible') || desiredKeywords.includes('choose') || desiredKeywords.includes('freedom') || desiredKeywords.includes('control')) &&
+     (currentKeywords.includes('stuck') || currentKeywords.includes('trapped') || currentKeywords.includes('overwhelmed') || currentKeywords.includes('exhausted'))) ||
+
+    // Time freedom vs Time scarcity
+    ((desiredKeywords.includes('time') || desiredKeywords.includes('family') || desiredKeywords.includes('present')) &&
+     (currentKeywords.includes('no time') || currentKeywords.includes('busy') || currentKeywords.includes('juggling') || currentKeywords.includes('always')));
+
   if (hasSignificantGap) {
     return 'SIGNIFICANT GAP: Your current trajectory and desired future are heading in opposite directions. Immediate action required.';
   }
-  
+
   return 'MODERATE GAP: Your desired future requires intentional changes to your current path. Small adjustments now can lead to big differences.';
 };
 

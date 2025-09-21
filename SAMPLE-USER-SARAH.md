@@ -3,16 +3,25 @@
 **Occupation:** Marketing Manager  
 **Family:** Married with 2 young children  
 
-## Quick Trajectory Check Data
+## Quick Trajectory Check Data (Updated for Current App Version)
 
-### Past Reflection (Age 25)
-"Just graduated college, working at a startup, living with roommates. Focused on learning and gaining experience. Dating casually, lots of social activities."
+### Step 1: Current Age
+35
 
-### Present Reflection (Age 35)
-"Marketing manager at mid-size company. Married with 2 young kids. Bought our first house. Always busy but feeling stuck professionally. Want more family time but need to advance career."
+### Step 2: Twenty Years Old (Age 20)
+"I wanted to travel the world, work at a cutting-edge tech company, maybe start my own business someday. I dreamed of making a real impact, having adventures, and building something meaningful while still having time for friends and experiences."
 
-### Future Desires (Age 45)
-"Leading my own marketing consultancy. Kids are older and more independent. Travel more with family. Have financial freedom and flexibility to choose my projects."
+### Step 3: Ten Years Ago (Age 25)
+"I was fresh out of college, working at a startup, living with roommates in the city. My focus was on learning everything I could, building my career, networking constantly. Dating casually, going out every weekend, feeling like I had unlimited potential ahead of me."
+
+### Step 4: Today (Age 35)
+"I'm a marketing manager at a mid-size company with a good salary and title. Married with 2 young kids, just bought our first house. I'm successful by traditional standards but feeling stuck and exhausted. No time for myself, always juggling work deadlines with school pickups. The entrepreneurial dreams feel impossibly far away now."
+
+### Step 5: Ten Years From Now (Age 45)
+"I want to be running my own marketing consultancy with 5-10 regular clients. Working from home with flexible hours so I can be present for my kids' teenage years. Traveling with my family at least twice a year. Having the financial freedom to choose projects I'm passionate about, not just chasing paychecks."
+
+### Step 6: Your Ideal Future (Age 80)
+"That I took the leap and built my own business instead of playing it safe. That I was truly present for my children growing up. That I helped other women entrepreneurs succeed. That I traveled to those places I dreamed about. That I lived authentically and didn't let fear keep me in a job that drained my soul."
 
 ## Analysis Results
 
