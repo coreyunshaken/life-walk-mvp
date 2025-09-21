@@ -158,8 +158,26 @@ const calculateGap = (
     ((futureText.includes('time') || futureText.includes('family') || futureText.includes('present')) &&
      (currentText.includes('no time') || currentText.includes('busy') || currentText.includes('juggling') || currentText.includes('always')));
 
+  // Add time pressure based on age and life stage
+  const age = presentPoint.age || 35;
+  const hasKids = currentText.includes('kids') || currentText.includes('children') || currentText.includes('family');
+  const isEntrepreneurial = futureText.includes('business') || futureText.includes('consultancy') || futureText.includes('entrepreneur');
+
+  let timePressure = '';
+
   if (hasSignificantGap) {
-    return 'SIGNIFICANT GAP: Your current trajectory and desired future are heading in opposite directions. Immediate action required.';
+    // Age-specific urgency messaging
+    if (age >= 30 && age <= 40 && hasKids && isEntrepreneurial) {
+      timePressure = ` At ${age} with young children, you have a narrow window before family expenses peak and risk tolerance drops. The 35-45 decade is critical for entrepreneurial moves.`;
+    } else if (age >= 30 && age <= 40 && isEntrepreneurial) {
+      timePressure = ` At ${age}, you're in the optimal age range for starting a business - old enough to have skills and credibility, young enough to take risks and recover from setbacks.`;
+    } else if (age >= 40 && age <= 50) {
+      timePressure = ` At ${age}, the window for major career pivots is narrowing. Every year of delay makes the transition exponentially harder.`;
+    } else if (age >= 25 && age <= 35) {
+      timePressure = ` You're ${age} - this is your power decade for building the foundation of your desired future. Don't let it slip away.`;
+    }
+
+    return `SIGNIFICANT GAP: Your current trajectory and desired future are heading in opposite directions. Immediate action required.${timePressure}`;
   }
 
   return 'MODERATE GAP: Your desired future requires intentional changes to your current path. Small adjustments now can lead to big differences.';
