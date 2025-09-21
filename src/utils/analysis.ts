@@ -83,24 +83,39 @@ const extractPatterns = (pastPoints: LifePoint[], presentPoint: LifePoint): stri
 
 const projectCurrentPath = (patterns: string[], presentPoint: LifePoint): string => {
   const age = presentPoint.age || 40;
-  
-  if (patterns.includes('Procrastination') && patterns.includes('Time-constrained')) {
-    return `Continuing on the same busy path, postponing personal goals indefinitely. By ${age + 20}, likely to have many regrets about unfulfilled dreams.`;
+  const currentText = presentPoint.reflection.toLowerCase();
+
+  // Extract key context from user's current situation
+  const isManager = currentText.includes('manager') || currentText.includes('leadership');
+  const isMarketing = currentText.includes('marketing');
+  const hasKids = currentText.includes('kids') || currentText.includes('children');
+  const isStuck = currentText.includes('stuck') || currentText.includes('trapped');
+  const isExhausted = currentText.includes('exhausted') || currentText.includes('overwhelmed');
+
+  // Create personalized prediction based on specific patterns and context
+  if (patterns.includes('Entrepreneurial') && patterns.includes('Risk-averse')) {
+    const roleContext = isManager ? 'senior management roles' : 'similar positions';
+    const industryContext = isMarketing ? 'marketing' : 'your field';
+    return `Your ${industryContext} career will advance to ${roleContext}, but the entrepreneurial dreams you had at 20 will fade. By ${age + 10}, you'll likely be successful in corporate terms but still an employee, not the business owner you envisioned. The "someday I'll start my own business" becomes "I should have done it years ago."`;
   }
-  
-  if (patterns.includes('Career-focused') && !patterns.includes('Family-oriented')) {
-    return `Career continues to dominate, personal relationships may suffer. Success in professional life but potential emptiness in personal fulfillment.`;
+
+  if (patterns.includes('Family-oriented') && patterns.includes('Work-life conflict')) {
+    const familyContext = hasKids ? 'Your children will grow up remembering you as always busy with work.' : 'Family time will continue to be sacrificed for career demands.';
+    return `${familyContext} By ${age + 10}, you'll have achieved professional success but may feel like you missed the important moments. The work-life balance you seek will remain elusive as responsibilities only increase with seniority.`;
   }
-  
-  if (patterns.includes('Family-oriented') && patterns.includes('Time-constrained')) {
-    return `Family responsibilities continue to take priority. Personal dreams and individual growth may be permanently deferred.`;
+
+  if (patterns.includes('Time-constrained') && patterns.includes('Achievement-driven')) {
+    return `You'll continue climbing the ladder but feeling increasingly stretched thin. By ${age + 10}, you'll have impressive titles and income, but the time scarcity that exhausts you now will only intensify. Success will come at the cost of personal fulfillment and energy.`;
   }
-  
-  if (patterns.includes('Aspiration-driven')) {
-    return `Strong dreams exist but without concrete action. The gap between aspirations and reality likely to widen over time.`;
+
+  if (patterns.includes('Risk-averse') && patterns.includes('Career-focused')) {
+    const stuckContext = isStuck ? 'The feeling of being stuck will deepen over time.' : 'Career advancement will follow predictable patterns.';
+    return `${stuckContext} You'll stay in secure but increasingly unfulfilling roles. By ${age + 10}, you'll be financially comfortable but wondering "what if" about the paths not taken. The comfort zone becomes a prison.`;
   }
-  
-  return `Current trajectory suggests more of the same patterns. Without intentional change, the future will closely resemble the present.`;
+
+  // Default personalized response
+  const exhaustionContext = isExhausted ? 'The exhaustion you feel now will compound' : 'Current patterns will intensify';
+  return `${exhaustionContext} as responsibilities grow. By ${age + 10}, you'll likely be in a similar situation but with higher stakes and fewer options for change. Without deliberate action, your future will be an amplified version of today's challenges.`;
 };
 
 const extractDesiredPath = (futureDesires: LifePoint[]): string => {
