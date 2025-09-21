@@ -192,11 +192,11 @@ const determineAction = (gap: string, patterns: string[]): string => {
   let immediateAction = '';
 
   if (patterns.includes('Entrepreneurial') && patterns.includes('Risk-averse')) {
-    immediateAction = 'Before you sleep tonight: Write down 3 people who successfully made the transition you want. Tomorrow: Reach out to one of them.';
+    immediateAction = 'Before you sleep tonight: Write down three people who successfully made the transition you want. Tomorrow: Reach out to one of them.';
   } else if (patterns.includes('Family-oriented') && patterns.includes('Work-life conflict')) {
     immediateAction = 'Tonight at dinner: Ask your family what they need most from you. Tomorrow: Block 2 hours of "untouchable" family time in your calendar.';
   } else if (patterns.includes('Time-constrained')) {
-    immediateAction = 'Right now: List 3 things you do that don\'t align with your stated goals. This week: Eliminate or delegate one of them.';
+    immediateAction = 'Right now: List three things you do that don\'t align with your stated goals. This week: Eliminate or delegate one of them.';
   } else if (gap.includes('SIGNIFICANT')) {
     immediateAction = 'Today: Choose one small action that your future self will thank you for. Tomorrow: Do it again. Build momentum.';
   } else {
